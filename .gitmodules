@@ -1,0 +1,9 @@
+[submodule "UI_Microservice"]
+	path = UI_Microservice
+	url = git@github.com:lexmarkCS499/UI_Microservice.git
+[submodule "API_Microservice"]
+	path = API_Microservice
+	url = git@github.com:lexmarkCS499/API_Microservice.git
+[submodule "DB_Microservice"]
+	path = DB_Microservice
+	url = git@github.com:lexmarkCS499/DB_Microservice.git
