@@ -1,0 +1,8 @@
+resources:
+  - ../../base
+
+# patchesStrategicMerge:
+#   - patch-replicas.yaml  # Patch to change the number of replicas for dev
+#   - patch-image.yaml     # Patch to specify dev image tags
+
+# You can include any environment-specific patches or settings here

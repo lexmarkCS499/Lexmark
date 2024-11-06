@@ -1,0 +1,8 @@
+resources:
+  - ../../base  # Point to the base directory for all resources
+
+# Apply any dev-specific customizations
+# patchesStrategicMerge:
+#   - patch-image-dev.yaml  # Custom patch for dev-specific images or settings
+
+# Optionally, you can add other dev-specific configurations (like replica count, resource limits, etc.)
