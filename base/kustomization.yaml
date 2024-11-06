@@ -4,5 +4,5 @@ resources:
   - ../DB_Microservice
 
 # Optionally, you can define common labels for all microservices here
-commonLabels:
+labels:
   app: my-app
