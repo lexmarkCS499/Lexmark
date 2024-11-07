@@ -6,11 +6,8 @@ on:
       - main  # Run the workflow when code is pushed to the main branch
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
 
   deploy:
-    needs: build-and-deploy
     runs-on: ubuntu-latest
 
     steps:
