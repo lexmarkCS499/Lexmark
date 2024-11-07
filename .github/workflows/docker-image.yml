@@ -1,0 +1,63 @@
+name: Build, Push Docker Image, and Deploy to Minikube
+
+on:
+  push:
+    branches:
+      - main  # Run the workflow when code is pushed to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+  deploy:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download and Install ArgoCD CLI in Working Directory
+        run: |
+          curl -sSL -o ./argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+          chmod +x ./argocd
+
+      - name: Sync API ArgoCD Application
+        env:
+          ARGOCD_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
+          ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+        run: |
+          if [ "${{ github.ref_name }}" == "dev" ]; then
+            ./argocd app sync dev-apiservice --server $ARGOCD_SERVER --auth-token $ARGOCD_TOKEN --grpc-web --prune
+          elif [ "${{ github.ref_name }}" == "staging" ]; then
+            ./argocd app sync staging-apiservice --server $ARGOCD_SERVER --auth-token $ARGOCD_TOKEN --grpc-web --prune
+          elif [ "${{ github.ref_name }}" == "prod" ]; then
+            ./argocd app sync prod-apiservice --server $ARGOCD_SERVER --auth-token $ARGOCD_TOKEN --grpc-web --prune
+          fi
+          
+      - name: Sync UI ArgoCD Application
+        env:
+          ARGOCD_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
+          ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+        run: |
+          if [ "${{ github.ref_name }}" == "dev" ]; then
+            ./argocd app sync dev-uiservice --server $ARGOCD_SERVER --auth-token $ARGOCD_TOKEN --grpc-web --prune
+          elif [ "${{ github.ref_name }}" == "staging" ]; then
+            ./argocd app sync staging-uiservice --server $ARGOCD_SERVER --auth-token $ARGOCD_TOKEN --grpc-web --prune
+          elif [ "${{ github.ref_name }}" == "prod" ]; then
+            ./argocd app sync prod-uiservice --server $ARGOCD_SERVER --auth-token $ARGOCD_TOKEN --grpc-web --prune
+          fi
+
+      - name: Sync DB ArgoCD Application
+        env:
+          ARGOCD_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
+          ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+        run: |
+          if [ "${{ github.ref_name }}" == "dev" ]; then
+            ./argocd app sync dev-db_microservice --server $ARGOCD_SERVER --auth-token $ARGOCD_TOKEN --grpc-web --prune
+          elif [ "${{ github.ref_name }}" == "staging" ]; then
+            ./argocd app sync staging-db_microservice --server $ARGOCD_SERVER --auth-token $ARGOCD_TOKEN --grpc-web --prune
+          elif [ "${{ github.ref_name }}" == "prod" ]; then
+            ./argocd app sync prod-db_microservice --server $ARGOCD_SERVER --auth-token $ARGOCD_TOKEN --grpc-web --prune
+          fi
+          
