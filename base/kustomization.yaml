@@ -1,6 +1,6 @@
 resources:
-  - ../UI_Microservice
-  - ../API_Microservice
+  - ../UI_Microservice/manifests
+  - ../API_Microservice/manifests
   - ../DB_Microservice
 
 # Optionally, you can define common labels for all microservices here
