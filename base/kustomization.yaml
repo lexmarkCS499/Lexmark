@@ -1,8 +1,8 @@
 resources:
   - ../UI_Microservice/manifests
   - ../API_Microservice/manifests
-  - ../DB_Microservice
+  - ../DB_Microservice/
 
-# Optionally, you can define common labels for all microservices here
-commonLabels:
-  app: my-app
+# # Optionally, you can define common labels for all microservices here
+# commonLabels:
+#   app: my-app

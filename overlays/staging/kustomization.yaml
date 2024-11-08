@@ -1,8 +1,8 @@
+# overlays/dev/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
 resources:
-  - ../../base
+  - ../../base  # Points to the base directory for all resources
 
-# patchesStrategicMerge:
-#   - patch-replicas.yaml  # Patch to change the number of replicas for dev
-#   - patch-image.yaml     # Patch to specify dev image tags
-
-# You can include any environment-specific patches or settings here
+namespace: staging  # Specifies the namespace for all resources in this overlay
