@@ -1,7 +1,7 @@
 [submodule "UI_Microservice"]
 	path = UI_Microservice
 	url = https://github.com/lexmarkCS499/UI_Microservice.git
-	branch = dev
+	branch = prod
 [submodule "API_Microservice"]
 	path = API_Microservice
 	url = https://github.com/lexmarkCS499/API_Microservice.git 
