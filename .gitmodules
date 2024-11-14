@@ -9,7 +9,7 @@
 [submodule "DB_Microservice"]
     path = DB_Microservice
     url = https://github.com/lexmarkCS499/DB_Microservice.git
-    branch = prod
+    branch = main
 [submodule "ArgoCD-Configs"]
     path = ArgoCD-Configs
     url = https://github.com/lexmarkCS499/ArgoCD-Configs.git
