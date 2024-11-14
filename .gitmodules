@@ -13,4 +13,4 @@
 [submodule "ArgoCD-Configs"]
 	path = ArgoCD-Configs
 	url = https://github.com/lexmarkCS499/ArgoCD-Configs.git
-	branch = prod
+	branch = main
