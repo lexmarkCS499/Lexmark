@@ -1,16 +1,16 @@
 [submodule "UI_Microservice"]
-    path = UI_Microservice
-    url = https://github.com/lexmarkCS499/UI_Microservice.git
-    branch = prod
+	path = UI_Microservice
+	url = https://github.com/lexmarkCS499/UI_Microservice.git
+	branch = dev
 [submodule "API_Microservice"]
-    path = API_Microservice
-    url = https://github.com/lexmarkCS499/API_Microservice.git 
-    branch = prod
+	path = API_Microservice
+	url = https://github.com/lexmarkCS499/API_Microservice.git 
+	branch = dev
 [submodule "DB_Microservice"]
-    path = DB_Microservice
-    url = https://github.com/lexmarkCS499/DB_Microservice.git
-    branch = main
+	path = DB_Microservice
+	url = https://github.com/lexmarkCS499/DB_Microservice.git
+	branch = dev
 [submodule "ArgoCD-Configs"]
-    path = ArgoCD-Configs
-    url = https://github.com/lexmarkCS499/ArgoCD-Configs.git
-    branch = main
+	path = ArgoCD-Configs
+	url = https://github.com/lexmarkCS499/ArgoCD-Configs.git
+	branch = main
